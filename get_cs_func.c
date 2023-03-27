@@ -33,7 +33,7 @@ int (*get_cs_func(const char *s, int *index, va_list *ap))(va_list *)
 	for (i = 0; css[i].cs != '\0'; i++)
 	{
 		if (s[*index] == css[i].cs)
-			return (css[i].f(apx));
+			return (css[i].f(&apx));
 	}
 	return (0);
 }

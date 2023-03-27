@@ -21,11 +21,12 @@ int print_char(va_list *ap)
  *
  * Return: 
  */
-int print_string(va_list ap)
+int print_string(va_list *ap)
 {
 	int i;
-
-	char *s = va_arg(ap, char *);
+	va_list apx;
+	va_copy(apx, *ap);
+	char *s = va_arg(apx, char *);
 	for (i = 0; s[i] != '\0'; i++)
 		write(1, &s[i], 1);
 	return (i);
