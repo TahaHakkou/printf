@@ -3,72 +3,102 @@
 #include <stdarg.h>
 /**
  * print_char - 
- * @c: 
- *
+ * @ap: 
  * Return: 
  */
 int print_char(va_list *ap)
 {
 	va_list apx;
-	va_copy(apx, *ap);
 	char c;
+	va_copy(apx, *ap);
 	c = va_arg(apx, int);
 	return (write(1, &c, 1));
 }
 /**
  * print_string - 
- * @s: 
- *
+ * @ap: 
  * Return: 
  */
 int print_string(va_list *ap)
 {
 	int i;
 	va_list apx;
+	char *s;
 	va_copy(apx, *ap);
-	char *s = va_arg(apx, char *);
+	s = va_arg(apx, char *);
 	for (i = 0; s[i] != '\0'; i++)
 		write(1, &s[i], 1);
 	return (i);
 }
-
-int decimal(va_list ap)
+/**
+ * print_percent - 
+ * @ap: 
+ * Return: 
+ */
+int print_percent(va_list *ap)
 {
-	int d = va_arg(ap, int);
+	(void)ap;
+	return (1);
+}
+/**
+ * print_decimal - 
+ * @ap: 
+ * Return: 
+ */
+int print_decimal(va_list *ap)
+{
+	va_list apx;
+	int d;
+	va_copy(apx, *ap);
+	d = va_arg(apx, int);
 	return (d);
 }
-
-int print_integer(char c)
+/**
+ * print_integer - 
+ * @ap:
+ * Return: 
+ */
+int print_integer(va_list *ap)
 {
-	return (c);
+	va_list apx;
+	int i;
+	va_copy(apx, *ap);
+	i = va_arg(apx, int);
+	return (i);
 }
 
-int a(char c)
+int a(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
 
-int bin(char c)
+int bin(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
 
-int oct(char c)
+int oct(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
 
-int hex(char c)
+int hex(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
 
-int print_reverse(char c)
+int print_reverse(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
 
-int print_rot13(char c)
+int print_rot13(va_list *ap)
 {
-	return (c);
+	(void)ap;
+	return (1);
 }
